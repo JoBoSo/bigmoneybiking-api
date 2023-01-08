@@ -19,5 +19,6 @@ from bike_tours import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/bike_tours/', views.bike_tours, name='bike_tours')
+    path('api/bike_tours/', views.bike_tours, name='bike_tours'),
+    path('api/bike_tours/<int:id>', views.bike_tour, name='bike_tours'),
 ]
