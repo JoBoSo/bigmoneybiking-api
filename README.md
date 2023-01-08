@@ -7,12 +7,12 @@ Create requirements
 ### `pip install -r requirements.txt`
 Install required packages
 
-### `python manage.py migrate`
-Migrate data models
-
-### `python manage.py makemigrations bike_tours`
-... after adding bike_tours to `
+### `python manage.py makemigrations`
+Make model migration
 ... after adding bike_tours to `INSTALLED_APPS` in `settings.py`
+
+### `python manage.py migrate`
+Push migration
 
 ### `python manage.py runserver`
 Run server

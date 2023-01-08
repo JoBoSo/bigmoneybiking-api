@@ -1,13 +1,12 @@
-from bike_tours.models import BikeTour
-from django.http import JsonResponse
-from bike_tours.serializers import BikeTourSerializer
+from bike_tours.models import BikeTour, BikeTourCard, BikeTourPage
+from bike_tours.serializers import BikeTourSerializer, BikeTourCardSerializer, BikeTourPageSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
 @api_view(['GET', 'POST'])
 def bike_tours(request):
-  if request.method = 'GET':
+  if request.method == 'GET':
     data = BikeTour.objects.all()
     serializer = BikeTourSerializer(data, many=True)
     return Response({'bike_tours': serializer.data})
