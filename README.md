@@ -19,3 +19,6 @@ Run server
 
 ### `http://127.0.0.1:8000/admin/`
 Access admin
+
+### `python manage.py dumpdata > out.json`
+Create copy of db
