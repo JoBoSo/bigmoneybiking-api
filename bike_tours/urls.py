@@ -21,8 +21,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/bike_tours/', views.bike_tours, name='bike_tours'),
-    path('api/bike_tours/<int:id>', views.bike_tour, name='bike_tours'),
+    path('api/bike_tours/', views.bike_tours),
+    path('api/bike_tours/<str:name>/', views.bike_tour),
+    path('api/bike_tour_pages/', views.bike_tour_pages),
+    path('api/bike_tour_pages/<str:bike_tour>/', views.bike_tour_page),
+    path('api/bike_tour_cards/', views.bike_tour_cards),
+    path('api/bike_tour_cards/<str:bike_tour>/', views.bike_tour_card),
 ]
 
 if settings.DEBUG:

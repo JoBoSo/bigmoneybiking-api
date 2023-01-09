@@ -6,19 +6,16 @@ class BikeTour(models.Model):
   name = models.CharField('Name', max_length=100, primary_key=True, default='create unique name')
   description = models.CharField('Description', max_length=100)
   distance_km = models.IntegerField('Distance (km)')
+  days = models.IntegerField(null=True)
   start_date = models.DateField('Start Date')
   end_date = models.DateField('End Date')
-
-  @property
-  def days(self):
-    return (self.start_date - self.end_date).days
 
   def __str__(self) -> str:
     return self.name
 
 
 class BikeTourCard(models.Model):
-  bike_tour = models.OneToOneField(BikeTour, on_delete=models.CASCADE, null=True)
+  bike_tour = models.ForeignKey(BikeTour, on_delete=models.CASCADE, null=True)
   title = models.CharField(max_length=100, default='no title')
   subtitle = models.CharField(max_length=100, default='no subtitle')
   image = models.ImageField(upload_to='images/bike_tours/card_images')
@@ -31,7 +28,7 @@ class BikeTourCard(models.Model):
 
 
 class BikeTourPage(models.Model):
-  bike_tour = models.OneToOneField(BikeTour, on_delete=models.CASCADE, null=True)
+  bike_tour = models.ForeignKey(BikeTour, on_delete=models.CASCADE, null=True)
   title = models.CharField(max_length=100, default='no title')
   map_url = models.URLField()
   report = models.CharField(max_length=10000, default='no report')
